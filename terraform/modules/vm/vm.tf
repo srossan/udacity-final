@@ -5,18 +5,18 @@ resource "azurerm_network_interface" "" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = ""
+    subnet_id                     = var.subnet_id_test
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = ""
+    public_ip_address_id          = var.public_ip_address_id
   }
 }
 
 resource "azurerm_linux_virtual_machine" "" {
-  name                = ""
-  location            = ""
-  resource_group_name = ""
-  size                = ""
-  admin_username      = ""
+  name                = "${var.application_type}-${var.resource_type}-sub"
+  location            = var.location
+  resource_group_name = var.resource_group
+  size                = "100"
+  admin_username      = "admin"
   network_interface_ids = []
   admin_ssh_key {
     username   = ""
