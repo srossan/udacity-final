@@ -1,7 +1,7 @@
 resource "azurerm_network_interface" "" {
   name                = ""
-  location            = ""
-  resource_group_name = ""
+  location            = var.location
+  resource_group_name = var.resource_group
 
   ip_configuration {
     name                          = "internal"
