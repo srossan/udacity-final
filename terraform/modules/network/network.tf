@@ -5,7 +5,7 @@ resource "azurerm_virtual_network" "test" {
   resource_group_name  = var.resource_group
 }
 resource "azurerm_subnet" "test" {
-  count                = length(var.address_prefixes)
+  count                = length(var.address_prefix_test)
   name                 = "${var.application_type}-${var.resource_type}-sub"
   resource_group_name  = var.resource_group
   virtual_network_name = azurerm_virtual_network.test.name
