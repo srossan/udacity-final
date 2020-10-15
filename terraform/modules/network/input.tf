@@ -7,7 +7,7 @@ variable address_space {}
 variable "application_type" {}
 variable "resource_type" {}
 variable "address_prefix_test" {}
-variable address_prefixes {
+variable address_prefix {
   description = "CIDRs for Virtual Networks."
   type        = list(string)
 }
