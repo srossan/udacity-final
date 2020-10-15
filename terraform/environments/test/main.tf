@@ -16,6 +16,7 @@ module "resource_group" {
   resource_group       = var.resource_group
   location             = var.location
 }
+
 module "network" {
   source               = "../../modules/network"
   address_space        = var.address_space
@@ -36,6 +37,7 @@ module "nsg-test" {
   subnet_id        = module.network.subnet_id_test
   address_prefix_test = var.address_prefix_test
 }
+
 module "appservice" {
   source           = "../../modules/appservice"
   location         = var.location
@@ -43,6 +45,7 @@ module "appservice" {
   resource_type    = "AppService"
   resource_group   = module.resource_group.resource_group_name
 }
+
 module "publicip" {
   source           = "../../modules/publicip"
   location         = var.location
