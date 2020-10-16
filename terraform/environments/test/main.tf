@@ -3,6 +3,7 @@ provider "azurerm" {
   subscription_id = var.subscription_id
   client_id       = var.client_id
   client_secret   = var.client_secret
+  version = "2.7.0"
   features {}
 }
 
@@ -30,7 +31,6 @@ module "network" {
   resource_type        = "NET"
   resource_group       = module.resource_group.resource_group_name
   address_prefix_test  = var.address_prefix_test
-  address_prefixes     = var.address_prefix_test
 }
 
 module "nsg-test" {
