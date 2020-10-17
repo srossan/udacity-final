@@ -15,9 +15,10 @@ resource "azurerm_linux_virtual_machine" "test" {
   name                = "${var.application_type}-${var.resource_type}-vm"
   location            = var.location
   resource_group_name = var.resource_group
-  size                = "100"
+  size                = "Standard_F1"
   admin_username      = "admin"
-  network_interface_ids = []
+  network_interface_ids = [azurerm_network_interface.test.id,
+  ]
   admin_ssh_key {
     username   = "admin"
     public_key = "file("~/.ssh/id_rsa.pub")"
